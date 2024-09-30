@@ -8,8 +8,7 @@
     <%@generos.each do |element|%>
         <li>
             <%= element.nome%>
-            <button>editar</button> 
-            <button>deletar</button>
+            <button><%= link_to 'Editar', edit_genero_path(element.id) %> </button> 
         </li>
         <br>
     <%end%>
