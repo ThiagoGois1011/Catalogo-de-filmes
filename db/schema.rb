@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_27_002041) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_01_130911) do
+  create_table "diretors", force: :cascade do |t|
+    t.string "nome"
+    t.string "nacionalidade"
+    t.date "data_de_aniversario"
+    t.integer "genero_favorito_id", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genero_favorito_id"], name: "index_diretors_on_genero_favorito_id"
+  end
+
   create_table "generos", force: :cascade do |t|
     t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "diretors", "generos", column: "genero_favorito_id"
 end

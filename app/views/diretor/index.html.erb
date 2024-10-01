@@ -1,0 +1,22 @@
+<div> 
+    <h1>Lista de Diretores</h1>
+    <button><%= link_to 'Criar novo diretor', new_diretor_path%></button>
+</div>
+<br>
+<br>
+<ul>
+    <%@diretores.each do |element|%>
+        <li>
+            Nome: <%= element.nome%>
+            <br>
+            Nascionalidade: <%= element.nacionalidade%>
+            <br>
+            Data de Aniversário: <%= element.data_de_aniversario%>
+            <br>
+            Gênero Favorito: <%= element.genero.nome%>
+            <br>
+            <button><%= link_to 'Editar', edit_diretor_path(element.id) %> </button> 
+        </li>
+        <br>
+    <%end%>
+</ul>

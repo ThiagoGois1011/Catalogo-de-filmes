@@ -13,4 +13,5 @@ Rails.application.routes.draw do
    # root "posts#index"
    root to: "home#welcome"
    resources :generos, only: [ :index, :create, :new, :edit, :update ]
+   resources :diretor, only: [ :index, :create, :new, :edit, :update ]
 end

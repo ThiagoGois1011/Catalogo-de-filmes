@@ -9,13 +9,10 @@ class GenerosController < ApplicationController
 
   def create
     parametro_genero = params[:genero][:nome].capitalize
-    if !Genero.find_by(nome: parametro_genero)
+    unless Genero.find_by(nome: parametro_genero)
       @novo_genero = Genero.new(nome: parametro_genero)
 
-      if @novo_genero.save
-        return redirect_to generos_path
-      end
-
+      return redirect_to(generos_path) if @novo_genero.save
     end
 
     render :new
