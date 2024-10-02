@@ -12,7 +12,7 @@ Rails.application.routes.draw do
    # Defines the root path route ("/")
    # root "posts#index"
    root to: "home#welcome"
-   resources :generos, only: [ :index, :create, :new, :edit, :update ]
-   resources :diretor, only: [ :index, :create, :new, :edit, :update ]
-   resources :filmes, only: [ :index, :create, :new, :edit, :update ]
+   resources :generos, only: [ :index, :create, :new, :edit, :update, :show ]
+   resources :diretor, only: [ :index, :create, :new, :edit, :update, :show ]
+   resources :filmes, only: [ :index, :create, :new, :edit, :update, :show ]
 end

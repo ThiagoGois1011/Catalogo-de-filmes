@@ -1,0 +1,26 @@
+<%= form_with model: @filme do |f|%>
+
+<%= f.label 'Título do Filme:'%>
+<%= f.text_field :titulo%>
+
+<%= f.label 'Ano de Lançamento:'%>
+<%= f.number_field :ano %>
+
+<%= f.label 'Sinopse:'%>
+<%= f.text_field :sinopse%>
+
+<%= f.label 'País de Origem:'%>
+<%= f.text_field :origem%>
+
+<%= f.label 'Duração (minutos):'%>
+<%= f.number_field :duracao %>
+
+<%= f.label 'Diretor:'%>
+<%= f.select :diretor_id, @select_opcoes_diretores, {include_blank: 'Selecione um diretor'}%>
+
+<%= f.label 'Gênero:'%>
+<%= f.select :genero_id, @select_opcoes_generos, {include_blank: 'Selecione um gênero'}%>
+
+<%= f.submit 'Enviar'%>
+
+<%end%>

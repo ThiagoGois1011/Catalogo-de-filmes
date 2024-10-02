@@ -29,4 +29,9 @@ class GenerosController < ApplicationController
     return redirect_to(generos_path) if operacao
     render :edit
   end
+
+  def show
+    @genero = Genero.find(params[:id])
+    @lista_de_filmes = Filme.where(genero_id: @genero.id)
+  end
 end
