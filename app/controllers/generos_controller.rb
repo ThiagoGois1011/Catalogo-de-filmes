@@ -26,9 +26,7 @@ class GenerosController < ApplicationController
     @genero = Genero.find(params[:id])
 
     operacao = @genero.update(nome: params[:genero][:nome])
-    if operacao
-      return redirect_to(generos_path)
-    end
+    return redirect_to(generos_path) if operacao
     render :edit
   end
 end

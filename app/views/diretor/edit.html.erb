@@ -1,0 +1,17 @@
+<%= form_with model: @diretor do |f|%>
+
+<%= f.label 'Nome:'%>
+<%= f.text_field :nome %>
+
+<%= f.label 'Nacionalidade:'%>
+<%= f.text_field :nacionalidade%>
+
+<%= f.label 'Data de Nascimento:'%>
+<%= f.date_field :data_de_aniversario%>
+
+<%= f.label 'Gênero Favorito'%>
+<%= f.select :genero_favorito_id, @select_opcoes, {include_blank: 'Selecione um gênero'}%>
+
+<%= f.submit 'Salvar'%>
+
+<%end%>
