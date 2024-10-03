@@ -7,13 +7,8 @@
 <ul>
     <%@diretores.each do |element|%>
         <li>
-            Nome: <%= element.nome%>
+            <%= link_to element.nome, diretor_path(element.id) %>
             <br>
-            Nascionalidade: <%= element.nacionalidade%>
-            <br>
-            Data de Aniversário: <%= element.data_de_aniversario%>
-            <br>
-            Gênero Favorito: <%= element.genero.nome%>
             <br>
             <button><%= link_to 'Editar', edit_diretor_path(element.id) %> </button> 
         </li>

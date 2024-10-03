@@ -51,4 +51,8 @@ class FilmesController < ApplicationController
     )
     redirect_to(filmes_path) if operacao
   end
+
+  def show
+    @filme = Filme.find(params[:id])
+  end
 end

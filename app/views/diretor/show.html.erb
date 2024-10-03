@@ -1,0 +1,17 @@
+<h1><%= @diretor.nome %></h1>
+<ul>
+    <li>Nascionalidade: <%= @diretor.nacionalidade %></li>
+    <li>Data de Aniversário: <%= @diretor.data_de_aniversario %></li>
+    <li>Gênero Favorito: <%= @diretor.genero.nome %></li>
+</ul>
+
+
+
+<h2>Lista de filmes do diretor</h2>
+
+<ul>
+<% @lista_de_filmes.each do |filme|%>
+<li><%= link_to filme.titulo, filme_path(filme.id)%></li>
+<br>
+<%end%>
+</ul>

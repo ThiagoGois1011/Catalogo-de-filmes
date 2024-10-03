@@ -7,9 +7,10 @@
 <ul>
     <%@filmes.each do |element|%>
         <li>
-            Título: <%= element.titulo%>
+            Título: <%= link_to element.titulo, filme_path(element.id) %>
             <br>
             Ano de Lançamento: <%= element.ano%>
+            <br>
             <br>
             <button><%= link_to 'Editar', edit_filme_path(element.id) %> </button> 
         </li>

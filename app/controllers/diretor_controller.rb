@@ -40,4 +40,9 @@ class DiretorController < ApplicationController
     )
     redirect_to(diretor_index_path) if operacao
   end
+
+  def show
+    @diretor = Diretor.find(params[:id])
+    @lista_de_filmes = Filme.where(diretor_id: @diretor.id)
+  end
 end
