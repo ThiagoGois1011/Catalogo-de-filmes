@@ -1,6 +1,7 @@
 class FilmesController < ApplicationController
   def index
-        @filmes = Filme.all
+        @filmes = Filme.ja_lancamento
+        @filmes_em_rascunho = Filme.a_ser_lancado
   end
 
   def new

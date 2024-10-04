@@ -6,5 +6,5 @@
     <li>Duração (minutos): <%= @filme.duracao %></li>
     <li>Diretor: <%= @filme.diretor.nome %></li>
     <li>Gênero: <%= @filme.genero.nome %></li>
-    <li>Status: <%= @filme.status %></li>
+    <li>Status: <%= Filme.texto_para_status(@filme.status)%></li>
 </ul>

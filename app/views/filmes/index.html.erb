@@ -11,7 +11,24 @@
             <br>
             Ano de Lançamento: <%= element.ano%>
             <br>
-            Status: <%= element.status%>
+            Status: <%= Filme.texto_para_status(element.status)%>
+            <br>
+            <br>
+            <button><%= link_to 'Editar', edit_filme_path(element.id) %> </button> 
+        </li>
+        <br>
+    <%end%>
+</ul>
+<h2>Lista de Filmes em Rascunho</h2>
+
+<ul>
+    <%@filmes_em_rascunho.each do |element|%>
+        <li>
+            Título: <%= link_to element.titulo, filme_path(element.id) %>
+            <br>
+            Ano de Lançamento: <%= element.ano%>
+            <br>
+            Status: <%= Filme.texto_para_status(element.status)%>
             <br>
             <br>
             <button><%= link_to 'Editar', edit_filme_path(element.id) %> </button> 
