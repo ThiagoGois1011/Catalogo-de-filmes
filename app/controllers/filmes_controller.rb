@@ -7,6 +7,7 @@ class FilmesController < ApplicationController
     @novo_filme = Filme.new
     @select_opcoes_diretores = Diretor.all.map { |diretor| [ diretor.nome, diretor.id ] }
     @select_opcoes_generos = Genero.all.map { |genero| [ genero.nome, genero.id ] }
+    @select_opcoes_status = [ [ "Rascunho", 0 ], [ "Lançado", 1 ] ]
   end
 
   def create
@@ -20,7 +21,8 @@ class FilmesController < ApplicationController
       origem: params_filme[:origem],
       duracao: params_filme[:duracao],
       diretor_id: params_filme[:diretor_id],
-      genero_id: params_filme[:genero_id]
+      genero_id: params_filme[:genero_id],
+      status: params_filme[:status]
     )
 
     redirect_to(filmes_path) if @novo_filme.save
@@ -30,6 +32,7 @@ class FilmesController < ApplicationController
     @filme = Filme.find(params[:id])
     @select_opcoes_diretores = Diretor.all.map { |diretor| [ diretor.nome, diretor.id ] }
     @select_opcoes_generos = Genero.all.map { |genero| [ genero.nome, genero.id ] }
+    @select_opcoes_status = [ [ "Rascunho", 0 ], [ "Lançado", 1 ] ]
   end
 
   def update
@@ -47,7 +50,8 @@ class FilmesController < ApplicationController
       origem: params_filme[:origem],
       duracao: params_filme[:duracao],
       diretor_id: params_filme[:diretor_id],
-      genero_id: params_filme[:genero_id]
+      genero_id: params_filme[:genero_id],
+      status: Integer(params_filme[:status])
     )
     redirect_to(filmes_path) if operacao
   end

@@ -21,6 +21,9 @@
 <%= f.label 'Gênero:'%>
 <%= f.select :genero_id, @select_opcoes_generos, {include_blank: 'Selecione um gênero'}%>
 
+<%= f.label 'Status:'%>
+<%= f.select :status, @select_opcoes_status%>
+
 <%= f.submit 'Enviar'%>
 
 <%end%>
