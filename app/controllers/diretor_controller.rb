@@ -40,6 +40,6 @@ class DiretorController < ApplicationController
 
   def show
     @diretor = Diretor.find(params[:id])
-    @lista_de_filmes = Filme.ja_lancamento
+    @lista_de_filmes = Filme.ja_lancamento.where(diretor_id: @diretor.id)
   end
 end
