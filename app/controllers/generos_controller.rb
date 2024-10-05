@@ -32,6 +32,6 @@ class GenerosController < ApplicationController
 
   def show
     @genero = Genero.find(params[:id])
-    @lista_de_filmes = Filme.where(genero_id: @genero.id)
+    @lista_de_filmes = Filme.ja_lancamento.where(genero_id: @genero.id)
   end
 end

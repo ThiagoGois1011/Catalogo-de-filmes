@@ -5,7 +5,6 @@ class DiretorController < ApplicationController
 
   def new
     @novo_diretor = Diretor.new
-    @select_opcoes = Genero.all.map { |genero| [ genero.nome, genero.id ] }
   end
 
   def create
@@ -22,12 +21,10 @@ class DiretorController < ApplicationController
 
   def edit
     @diretor = Diretor.find(params[:id])
-    @select_opcoes = Genero.all.map { |genero| [ genero.nome, genero.id ] }
   end
 
   def update
     params_diretor = params[:diretor]
-    @select_opcoes = Genero.all.map { |genero| [ genero.nome, genero.id ] }
     return if params_diretor[:genero_favorito_id].empty?
 
     @diretor = Diretor.find(params[:id])
@@ -43,6 +40,6 @@ class DiretorController < ApplicationController
 
   def show
     @diretor = Diretor.find(params[:id])
-    @lista_de_filmes = Filme.where(diretor_id: @diretor.id)
+    @lista_de_filmes = Filme.ja_lancamento
   end
 end

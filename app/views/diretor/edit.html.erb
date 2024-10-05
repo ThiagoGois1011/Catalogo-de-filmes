@@ -2,16 +2,20 @@
 
 <%= f.label 'Nome:'%>
 <%= f.text_field :nome %>
-
+<br>
+<br>
 <%= f.label 'Nacionalidade:'%>
 <%= f.text_field :nacionalidade%>
-
+<br>
+<br>
 <%= f.label 'Data de Nascimento:'%>
 <%= f.date_field :data_de_aniversario%>
-
+<br>
+<br>
 <%= f.label 'Gênero Favorito'%>
-<%= f.select :genero_favorito_id, @select_opcoes, {include_blank: 'Selecione um gênero'}%>
-
-<%= f.submit 'Salvar'%>
+<%= f.collection_select  :genero_favorito_id, Genero.all, :id, :nome, {include_blank: 'Selecione um gênero'}%>
+<br>
+<br>
+<%= f.submit 'Salvar' ,class: 'button_style_2'%>
 
 <%end%>

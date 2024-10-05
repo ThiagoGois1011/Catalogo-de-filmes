@@ -1,38 +1,39 @@
 <div> 
     <h1>Lista de Filmes</h1>
-    <button><%= link_to 'Criar novo filme', new_filme_path%></button>
+    <button class="button_style"><%= link_to 'Criar novo filme', new_filme_path%></button>
 </div>
 <br>
 <br>
-<ul>
+<div class="container_list">
     <%@filmes.each do |element|%>
-        <li>
-            Título: <%= link_to element.titulo, filme_path(element.id) %>
-            <br>
-            Ano de Lançamento: <%= element.ano%>
-            <br>
-            Status: <%= Filme.texto_para_status(element.status)%>
-            <br>
-            <br>
-            <button><%= link_to 'Editar', edit_filme_path(element.id) %> </button> 
-        </li>
-        <br>
+        <div class="item">
+            <img src='<%=element.poster_url%>' alt='poster do filme' width='200' height='300'>
+            <span class="my-10">Título: <%=element.titulo%> </span>
+            <span class="my-10">Ano de Lançamento: <%= element.ano%></span>
+            <span class="my-10">Status: <%= Filme.texto_para_status(element.status)%></span>
+            
+            <div>
+                <button class="button_style mx-10"><%= link_to 'Ver', filme_path(element.id) %></button> 
+                <button class="button_style mx-10"><%= link_to 'Editar', edit_filme_path(element.id) %> </button> 
+            </div>
+        </div>
     <%end%>
-</ul>
+</div>
 <h2>Lista de Filmes em Rascunho</h2>
 
-<ul>
+<div class="container_list">
     <%@filmes_em_rascunho.each do |element|%>
-        <li>
-            Título: <%= link_to element.titulo, filme_path(element.id) %>
-            <br>
-            Ano de Lançamento: <%= element.ano%>
-            <br>
-            Status: <%= Filme.texto_para_status(element.status)%>
-            <br>
-            <br>
-            <button><%= link_to 'Editar', edit_filme_path(element.id) %> </button> 
-        </li>
-        <br>
+        <div class="item">
+            <img src='<%=element.poster_url%>' alt='poster do filme' width='200' height='300'>
+            <span class="my-10">Título: <%=element.titulo%> </span>
+            <span class="my-10">Ano de Lançamento: <%= element.ano%></span>
+            <span class="my-10">Status: <%= Filme.texto_para_status(element.status)%></span>
+            
+            <div>
+                <button class="button_style mx-10"><%= link_to 'Ver', filme_path(element.id) %></button> 
+                <button class="button_style mx-10"><%= link_to 'Editar', edit_filme_path(element.id) %> </button> 
+            </div>
+        </div>
     <%end%>
-</ul>
+</div>
+<p>(Rascunho apenas visível nesta página)</p>

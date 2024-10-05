@@ -1,17 +1,17 @@
 <div> 
     <h1>Lista de Gênero</h1>
-    <button><%= link_to 'Criar novo gênero', new_genero_path%></button>
+    <button class="button_style"><%= link_to 'Criar novo gênero', new_genero_path%></button>
 </div>
 <br>
 <br>
-<ul>
+<div class="container_list">
     <%@generos.each do |element|%>
-        <li>
-            <%= link_to element.nome , genero_path(element.id) %>
-            <br>
-            <br>
-            <button><%= link_to 'Editar', edit_genero_path(element.id) %> </button> 
-        </li>
-        <br>
+        <div class="item">
+            <h2><%= element.nome%></h2>
+            <div>
+                <span class="button_style m-20"><%= link_to  'Ver', genero_path(element.id) %></span>
+                <button class="button_style"><%= link_to 'Editar', edit_genero_path(element.id) %> </button> 
+            </div>
+        </div>
     <%end%>
-</ul>
+</div>

@@ -1,29 +1,41 @@
 <%= form_with model: @filme do |f|%>
-
+<%= f.hidden_field :previous_url, value: @previous_url %>
+<%= f.label 'URL do Poster:'%>
+<%= f.text_field :poster_url%>
+<br>
+<br>
 <%= f.label 'Título do Filme:'%>
 <%= f.text_field :titulo%>
-
+<br>
+<br>
 <%= f.label 'Ano de Lançamento:'%>
 <%= f.number_field :ano %>
-
+<br>
+<br>
 <%= f.label 'Sinopse:'%>
-<%= f.text_field :sinopse%>
-
+<%= f.text_area :sinopse%>
+<br>
+<br>
 <%= f.label 'País de Origem:'%>
 <%= f.text_field :origem%>
-
+<br>
+<br>
 <%= f.label 'Duração (minutos):'%>
 <%= f.number_field :duracao %>
-
+<br>
+<br>
 <%= f.label 'Diretor:'%>
-<%= f.select :diretor_id, @select_opcoes_diretores, {include_blank: 'Selecione um diretor'}%>
-
+<%= f.collection_select  :diretor_id, Diretor.all, :id, :nome, {include_blank: 'Selecione um diretor'}%>
+<br>
+<br>
 <%= f.label 'Gênero:'%>
-<%= f.select :genero_id, @select_opcoes_generos, {include_blank: 'Selecione um gênero'}%>
-
+<%= f.collection_select  :genero_id, Genero.all, :id, :nome, {include_blank: 'Selecione um gênero'}%>
+<br>
+<br>
 <%= f.label 'Status:'%>
 <%= f.select :status, @select_opcoes_status, {selected: @filme.status_before_type_cast}%>
-
-<%= f.submit 'Enviar'%>
+<br>
+<br>
+<%= f.submit 'Salvar', class: 'button_style_2'%>
 
 <%end%>

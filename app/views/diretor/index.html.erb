@@ -1,17 +1,17 @@
 <div> 
     <h1>Lista de Diretores</h1>
-    <button><%= link_to 'Criar novo diretor', new_diretor_path%></button>
+    <button class="button_style"><%= link_to 'Criar novo diretor', new_diretor_path%></button>
 </div>
 <br>
 <br>
-<ul>
+<div class="container_list">
     <%@diretores.each do |element|%>
-        <li>
-            <%= link_to element.nome, diretor_path(element.id) %>
-            <br>
-            <br>
-            <button><%= link_to 'Editar', edit_diretor_path(element.id) %> </button> 
-        </li>
-        <br>
+        <div class="item">
+            <h2><%= element.nome%></h2>
+            <div>
+                <span class="button_style m-20"><%= link_to  'Ver', diretor_path(element.id) %></span>
+                <button class="button_style"><%= link_to 'Editar', edit_diretor_path(element.id) %> </button> 
+            </div>
+        </div>
     <%end%>
-</ul>
+</div>

@@ -1,15 +1,69 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.nav__links{
+    list-style: none;
+}
+
+.button_style a{
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+.button_style{
+    display: inline-flex;
+    background: #da6767;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+}
+.m-20{
+    margin: 20px;
+}
+
+.button_style:hover{
+    background: #6d2323;
+}
+
+.button_style a:hover{
+    color: white;
+}
+
+.button_style_2{
+    background: #da6767;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 20px;
+    color: black;
+}
+
+.button_style_2:hover{
+    color: white;
+    background: #6d2323;
+}
+
+.container_list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 20px;
+    padding: 20px;
+    border: 1px solid black ;
+}
+
+.item a{
+    color: black;
+    
+}
+
+.my-10{
+    margin: 10px 0;
+}
+
+.mx-10{
+    margin: 0 10px;
+}

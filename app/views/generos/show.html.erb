@@ -2,9 +2,18 @@
 
 <h2>Lista de filmes do gênero</h2>
 
-<ul>
-<% @lista_de_filmes.each do |filme|%>
-<li><%= link_to filme.titulo, filme_path(filme.id)%></li>
-<br>
-<%end%>
-</ul>
+<div class="container_list">
+    <%@lista_de_filmes.each do |element|%>
+        <div class="item">
+            <img src='<%=element.poster_url%>' alt='poster do filme' width='200' height='300'>
+            <span class="my-10">Título: <%=element.titulo%> </span>
+            <span class="my-10">Ano de Lançamento: <%= element.ano%></span>
+            <span class="my-10">Status: <%= Filme.texto_para_status(element.status)%></span>
+            
+            <div>
+                <button class="button_style mx-10"><%= link_to 'Ver', filme_path(element.id) %></button> 
+                <button class="button_style mx-10"><%= link_to 'Editar', edit_filme_path(element.id) %> </button> 
+            </div>
+        </div>
+    <%end%>
+</div>
